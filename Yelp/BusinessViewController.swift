@@ -15,27 +15,19 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
   @IBOutlet weak var businessTableView: UITableView!
   
   var businesses = [Business]()
-  var searchFilteredBusinesses = [Business]()
   var filtersButton: UIBarButtonItem!
   let searchBar = UISearchBar()
   var mapOrListViewButton: UIBarButtonItem!
+  var isMoreDataLoading = false
+  var searchTerm = "Restaurant"
+  var loadingMoreView: InfiniteScrollActivityView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
-      self.businesses = businesses
-      self.searchFilteredBusinesses = businesses
-      
-      for business in businesses {
-        print(business.name!)
-        print(business.address!)
-      }
-      self.businessTableView.reloadData()
-    })
-    
     businessTableView.delegate = self
     businessTableView.dataSource = self
+    performSearch()
     
     businessTableView.registerNib(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "businessCell")
     businessTableView.estimatedRowHeight = 100
@@ -52,7 +44,15 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
     mapOrListViewButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(mapOrListViewButtonAction))
     navigationItem.rightBarButtonItem = mapOrListViewButton
     
-    // Do any additional setup after loading the view.
+    // Set up Infinite Scroll loading indicator
+    let frame = CGRectMake(0, businessTableView.contentSize.height, businessTableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+    loadingMoreView = InfiniteScrollActivityView(frame: frame)
+    loadingMoreView!.hidden = true
+    businessTableView.addSubview(loadingMoreView!)
+    
+    var insets = businessTableView.contentInset;
+    insets.bottom += InfiniteScrollActivityView.defaultHeight;
+    businessTableView.contentInset = insets
   }
   
   func filtersBarButtonAction() {
@@ -84,11 +84,6 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
   
   func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: Filters) {
     Filters.sharedInstance = filters
-    let categories = [String](filters.categories)
-    Business.searchWithTerm("Restaurants", sort: filters.sort, categories: categories, deals: filters.deal, distance: filters.distance) {
-      (businesses: [Business]!, error: NSError!) -> Void in
-      self.businesses = businesses
-      self.performSearch()
-    }
+    performSearch()
   }
 }

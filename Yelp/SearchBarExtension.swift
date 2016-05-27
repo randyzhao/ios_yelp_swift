@@ -12,23 +12,31 @@ import MapKit
 
 extension BusinessViewController: UISearchBarDelegate {
   func performSearch() {
-    let searchText = searchBar.text ?? ""
-    if searchText == "" {
-      searchFilteredBusinesses = businesses
-    } else {
-      searchFilteredBusinesses = self.businesses.filter({
-        (business: Business) -> Bool in
-        return business.name?.lowercaseString.containsString(searchText.lowercaseString) ?? false
-      })
-    }
-    if !businessTableView.hidden {
-      businessTableView.reloadData()
-    } else {
-      configMap()
+    let filters = Filters.sharedInstance
+
+    Business.searchWithTerm(searchTerm, sort: filters.sort, categories: [String](filters.categories), deals: filters.deal, distance: filters.distance) {
+      (businesses: [Business]!, error: NSError!) -> Void in
+      self.businesses = businesses
+      self.businessTableView.reloadData()
     }
   }
   
-  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+  func loadMoreData() {
+    let filters = Filters.sharedInstance
+    
+    Business.searchWithTerm(searchTerm, sort: filters.sort, categories: [String](filters.categories), deals: filters.deal, distance: filters.distance, offset: businesses.count) {
+      (businesses: [Business]!, error: NSError!) -> Void in
+      self.businesses += businesses
+      
+      self.loadingMoreView!.stopAnimating()
+      self.isMoreDataLoading = false
+      
+      self.businessTableView.reloadData()
+    }
+  }
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    searchTerm = searchBar.text ?? searchTerm
     performSearch()
   }
 }

@@ -16,7 +16,7 @@ extension BusinessViewController {
     var totalLongitude: Double = 0
     var totalLatitude: Double = 0
     
-    searchFilteredBusinesses.forEach { (business) in
+    businesses.forEach { (business) in
       if business.longitude != nil && business.latitude != nil {
         locationCount += 1
         totalLatitude += business.latitude!
@@ -33,7 +33,7 @@ extension BusinessViewController {
   }
   
   func latitudeMetersOfBusinesses() -> Double {
-    let businesses = businessesWithLocations(searchFilteredBusinesses)
+    let businesses = businessesWithLocations(self.businesses)
     let latitudes = businesses.map { (business) -> Double in
       return business.latitude!
     }
@@ -46,7 +46,7 @@ extension BusinessViewController {
   }
   
   func longitudeMetersOfBusinesses() -> Double {
-    let businesses = businessesWithLocations(searchFilteredBusinesses)
+    let businesses = businessesWithLocations(self.businesses)
     let longitude = businesses.map { (business) -> Double in
       return business.longitude!
     }
@@ -65,7 +65,7 @@ extension BusinessViewController {
   }
   
   func addPins() {
-    businessesWithLocations(searchFilteredBusinesses).forEach { (business) in
+    businessesWithLocations(businesses).forEach { (business) in
       let dropPin = MKPointAnnotation()
       dropPin.coordinate = CLLocation(latitude: business.latitude!, longitude: business.longitude!).coordinate
       dropPin.title = business.name

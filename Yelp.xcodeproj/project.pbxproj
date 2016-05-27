@@ -31,6 +31,8 @@
 		A4B89A5E1CF512B80081D94B /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B89A5C1CF512B80081D94B /* FiltersTableViewCell.xib */; };
 		A4B89A631CF53BED0081D94B /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B89A621CF53BED0081D94B /* Filters.swift */; };
 		A4E16EC71CF8DCEF00D88674 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E16EC61CF8DCEF00D88674 /* MapExtension.swift */; };
+		A4E16EC91CF8EA7200D88674 /* InfiniteScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E16EC81CF8EA7200D88674 /* InfiniteScroll.swift */; };
+		A4E16ECB1CF8F77F00D88674 /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E16ECA1CF8F77F00D88674 /* InfiniteScrollActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		A4B89A5C1CF512B80081D94B /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
 		A4B89A621CF53BED0081D94B /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		A4E16EC61CF8DCEF00D88674 /* MapExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
+		A4E16EC81CF8EA7200D88674 /* InfiniteScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScroll.swift; sourceTree = "<group>"; };
+		A4E16ECA1CF8F77F00D88674 /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		AA3C5CF4FD317D72ABE2AAC4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79C0AC126EDAA235847CEA2 /* Pods_Yelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF53DC2D7A8303A68532E7C6 /* Pods-Yelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				A450265C1CF77E1300534A17 /* TableViewExtension.swift */,
 				A450265E1CF77E8900534A17 /* SearchBarExtension.swift */,
 				A4E16EC61CF8DCEF00D88674 /* MapExtension.swift */,
+				A4E16EC81CF8EA7200D88674 /* InfiniteScroll.swift */,
 			);
 			name = BusinessViewControllerExtensions;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				A450264F1CF6877100534A17 /* DropdownTableViewCell.xib */,
 				A45026521CF7692900534A17 /* CheckTableViewCell.swift */,
 				A45026531CF7692900534A17 /* CheckTableViewCell.xib */,
+				A4E16ECA1CF8F77F00D88674 /* InfiniteScrollActivityView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E16ECB1CF8F77F00D88674 /* InfiniteScrollActivityView.swift in Sources */,
 				A4B89A5D1CF512B80081D94B /* FiltersTableViewCell.swift in Sources */,
 				A4B89A551CF4D50C0081D94B /* BusinessTableViewCell.swift in Sources */,
 				22AAAA991AEA0A9700A544AF /* Business.swift in Sources */,
@@ -466,6 +473,7 @@
 				A450265D1CF77E1300534A17 /* TableViewExtension.swift in Sources */,
 				A4B89A501CF4D4210081D94B /* BusinessViewController.swift in Sources */,
 				A45026541CF7692900534A17 /* CheckTableViewCell.swift in Sources */,
+				A4E16EC91CF8EA7200D88674 /* InfiniteScroll.swift in Sources */,
 				A4B89A631CF53BED0081D94B /* Filters.swift in Sources */,
 				A4B89A591CF50FE80081D94B /* FiltersViewController.swift in Sources */,
 				222D8A5B19CCF9F900D2DB53 /* AppDelegate.swift in Sources */,

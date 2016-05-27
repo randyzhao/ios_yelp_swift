@@ -11,7 +11,7 @@ import UIKit
 
 extension BusinessViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return searchFilteredBusinesses.count
+    return businesses.count
   }
   
   // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -19,7 +19,7 @@ extension BusinessViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = businessTableView.dequeueReusableCellWithIdentifier("businessCell", forIndexPath: indexPath) as! BusinessTableViewCell
-    cell.business = searchFilteredBusinesses[indexPath.row]
+    cell.business = businesses[indexPath.row]
     return cell
   }
 }
