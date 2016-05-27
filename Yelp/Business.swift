@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class Business: NSObject {
   let name: String?
@@ -16,6 +17,8 @@ class Business: NSObject {
   let distance: String?
   let ratingImageURL: NSURL?
   let reviewCount: NSNumber?
+  var longitude: Double?
+  var latitude: Double?
   
   init(dictionary: NSDictionary) {
     name = dictionary["name"] as? String
@@ -72,6 +75,12 @@ class Business: NSObject {
       ratingImageURL = nil
     }
     
+    if let location = dictionary["location"] as? NSDictionary {
+      if let coordinate = location["coordinate"] as? NSDictionary {
+        latitude = coordinate["latitude"] as? Double
+        longitude = coordinate["longitude"] as? Double
+      }
+    }
     reviewCount = dictionary["review_count"] as? NSNumber
   }
   

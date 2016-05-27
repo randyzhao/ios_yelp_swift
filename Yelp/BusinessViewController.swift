@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import MapKit
 
 class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
   
+  @IBOutlet weak var businessMapView: MKMapView!
   @IBOutlet weak var businessTableView: UITableView!
   
   var businesses = [Business]()
   var searchFilteredBusinesses = [Business]()
   var filtersButton: UIBarButtonItem!
   let searchBar = UISearchBar()
+  var mapOrListViewButton: UIBarButtonItem!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,6 +48,10 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
     
     navigationItem.titleView = searchBar
     searchBar.delegate = self
+    
+    mapOrListViewButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(mapOrListViewButtonAction))
+    navigationItem.rightBarButtonItem = mapOrListViewButton
+    
     // Do any additional setup after loading the view.
   }
   
@@ -53,6 +60,20 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
     let filtersViewController = navigationController?.topViewController as! FiltersViewController
     
     filtersViewController.delegate = self
+  }
+  
+  func mapOrListViewButtonAction() {
+    if businessTableView.hidden {
+      // Map view is live
+      businessTableView.hidden = false
+      businessMapView.hidden = true
+      mapOrListViewButton.title = "Map"
+    } else {
+      businessTableView.hidden = true
+      businessMapView.hidden = false
+      mapOrListViewButton.title = "List"
+      configMap()
+    }
   }
   
   override func didReceiveMemoryWarning() {

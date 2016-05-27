@@ -30,6 +30,7 @@
 		A4B89A5D1CF512B80081D94B /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B89A5B1CF512B80081D94B /* FiltersTableViewCell.swift */; };
 		A4B89A5E1CF512B80081D94B /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B89A5C1CF512B80081D94B /* FiltersTableViewCell.xib */; };
 		A4B89A631CF53BED0081D94B /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B89A621CF53BED0081D94B /* Filters.swift */; };
+		A4E16EC71CF8DCEF00D88674 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E16EC61CF8DCEF00D88674 /* MapExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		A4B89A5B1CF512B80081D94B /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		A4B89A5C1CF512B80081D94B /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
 		A4B89A621CF53BED0081D94B /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		A4E16EC61CF8DCEF00D88674 /* MapExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		AA3C5CF4FD317D72ABE2AAC4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79C0AC126EDAA235847CEA2 /* Pods_Yelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF53DC2D7A8303A68532E7C6 /* Pods-Yelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				A450265C1CF77E1300534A17 /* TableViewExtension.swift */,
 				A450265E1CF77E8900534A17 /* SearchBarExtension.swift */,
+				A4E16EC61CF8DCEF00D88674 /* MapExtension.swift */,
 			);
 			name = BusinessViewControllerExtensions;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				A45026641CF79D0700534A17 /* ExpandableTableViewSectionHandler.swift in Sources */,
 				A45026501CF6877100534A17 /* DropdownTableViewCell.swift in Sources */,
 				222D8A7D19CCFAE000D2DB53 /* YelpClient.swift in Sources */,
+				A4E16EC71CF8DCEF00D88674 /* MapExtension.swift in Sources */,
 				A450265D1CF77E1300534A17 /* TableViewExtension.swift in Sources */,
 				A4B89A501CF4D4210081D94B /* BusinessViewController.swift in Sources */,
 				A45026541CF7692900534A17 /* CheckTableViewCell.swift in Sources */,

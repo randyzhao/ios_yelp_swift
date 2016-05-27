@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension BusinessViewController: UISearchBarDelegate {
   func performSearch() {
@@ -20,7 +21,11 @@ extension BusinessViewController: UISearchBarDelegate {
         return business.name?.lowercaseString.containsString(searchText.lowercaseString) ?? false
       })
     }
-    businessTableView.reloadData()
+    if !businessTableView.hidden {
+      businessTableView.reloadData()
+    } else {
+      configMap()
+    }
   }
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
