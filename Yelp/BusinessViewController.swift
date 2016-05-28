@@ -19,7 +19,7 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
   let searchBar = UISearchBar()
   var mapOrListViewButton: UIBarButtonItem!
   var isMoreDataLoading = false
-  var searchTerm = "Restaurant"
+  var searchTerm = ""
   var loadingMoreView: InfiniteScrollActivityView?
   var locationManager: CLLocationManager!
   var userLocation: CLLocation = CLLocation(latitude: 37.785771, longitude: -122.406165)
@@ -42,6 +42,7 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
     
     navigationItem.titleView = searchBar
     searchBar.delegate = self
+    searchBar.enablesReturnKeyAutomatically = false
     
     mapOrListViewButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(mapOrListViewButtonAction))
     navigationItem.rightBarButtonItem = mapOrListViewButton

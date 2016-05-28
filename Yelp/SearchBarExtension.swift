@@ -36,6 +36,7 @@ extension BusinessViewController: UISearchBarDelegate {
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    searchBar.endEditing(true)
     searchTerm = searchBar.text ?? searchTerm
     performSearch()
   }
