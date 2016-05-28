@@ -22,4 +22,10 @@ extension BusinessViewController: UITableViewDelegate, UITableViewDataSource {
     cell.business = businesses[indexPath.row]
     return cell
   }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let dvc = DetailsViewController()
+    dvc.business = businesses[indexPath.row]
+    navigationController?.pushViewController(dvc, animated: true)
+  }
 }

@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MJ-CT-ZzD">
-                        <rect key="frame" x="13" y="11" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MJ-CT-ZzD">
+                        <rect key="frame" x="16" y="8" width="42" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -32,6 +32,7 @@
                 <constraints>
                     <constraint firstItem="6MJ-CT-ZzD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Brq-JF-9l3"/>
                     <constraint firstItem="6MJ-CT-ZzD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="FJY-iU-0Gy"/>
+                    <constraint firstItem="6MJ-CT-ZzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="mDh-kZ-bmJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="iQa-Aw-Obm" secondAttribute="trailing" constant="10" id="t1h-k0-QZ4"/>
                     <constraint firstItem="iQa-Aw-Obm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tkN-29-CTV"/>
                 </constraints>
