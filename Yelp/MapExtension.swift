@@ -37,6 +37,9 @@ extension BusinessViewController {
     let latitudes = businesses.map { (business) -> Double in
       return business.latitude!
     }
+    if latitudes.count == 0 {
+      return 1000
+    }
     let maxLatitude = latitudes.maxElement()!
     let minLatitude = latitudes.minElement()!
     let center = getCenterOfBusinesses()
@@ -47,11 +50,14 @@ extension BusinessViewController {
   
   func longitudeMetersOfBusinesses() -> Double {
     let businesses = businessesWithLocations(self.businesses)
-    let longitude = businesses.map { (business) -> Double in
+    let longitudes = businesses.map { (business) -> Double in
       return business.longitude!
     }
-    let maxLongitude = longitude.maxElement()!
-    let minLongitude = longitude.minElement()!
+    if longitudes.count == 0 {
+      return 1000
+    }
+    let maxLongitude = longitudes.maxElement()!
+    let minLongitude = longitudes.minElement()!
     let center = getCenterOfBusinesses()
     let loc1 = CLLocation(latitude: center.coordinate.latitude, longitude: maxLongitude)
     let loc2 = CLLocation(latitude: center.coordinate.latitude, longitude: minLongitude)

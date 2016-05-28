@@ -21,13 +21,15 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
   var isMoreDataLoading = false
   var searchTerm = "Restaurant"
   var loadingMoreView: InfiniteScrollActivityView?
+  var locationManager: CLLocationManager!
+  var userLocation: CLLocation = CLLocation(latitude: 37.785771, longitude: -122.406165)
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     businessTableView.delegate = self
     businessTableView.dataSource = self
-    performSearch()
+    //performSearch()
     
     businessTableView.registerNib(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "businessCell")
     businessTableView.estimatedRowHeight = 100
@@ -53,6 +55,15 @@ class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
     var insets = businessTableView.contentInset;
     insets.bottom += InfiniteScrollActivityView.defaultHeight;
     businessTableView.contentInset = insets
+    
+    if (CLLocationManager.locationServicesEnabled())
+    {
+      locationManager = CLLocationManager()
+      locationManager.delegate = self
+      locationManager.desiredAccuracy = kCLLocationAccuracyBest
+      locationManager.requestAlwaysAuthorization()
+      locationManager.startUpdatingLocation()
+    }
   }
   
   func filtersBarButtonAction() {
