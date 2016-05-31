@@ -42,6 +42,9 @@ Here's a walkthrough of implemented user stories:
 ### Details page ###
 ![details](http://i.imgur.com/KQhQGMx.gif)
 
+### Autolayout ###
+[autolayout](http://i.imgur.com/x8gYVIp.gifv)
+
 ## Questions ##
 
 1. What is the best way to dismiss keyboard when user clicks or swipes anywhere in the screen. I found a solution that requires to add swipe gesture recognizer for every directions
